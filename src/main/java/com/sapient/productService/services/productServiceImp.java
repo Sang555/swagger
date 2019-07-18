@@ -2,6 +2,9 @@ package com.sapient.productService.services;
 
 import java.util.List;
 
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.sapient.productService.DAO.ProductDAO;
@@ -10,9 +13,11 @@ import com.sapient.productService.model.Product;
 @Service(value = "productsService")
 public class productServiceImp implements ProductServices {
 	
+	@Autowired( required = true)
+	@Qualifier(value="hibernateDAOImp")
 	private ProductDAO productDAO;
 	
-	public productServiceImp(ProductDAO productDAO)
+	public productServiceImp(@Qualifier(value = "hibernateDAOImp")ProductDAO productDAO)
 	{
 		this.productDAO=productDAO;
 	}

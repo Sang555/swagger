@@ -69,5 +69,8 @@ public class productsController {
 	{
 		ps.deleteprod(id);		
 	}
+	
+  
+    
 
 }
